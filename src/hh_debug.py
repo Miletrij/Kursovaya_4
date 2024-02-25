@@ -7,6 +7,10 @@ class HH_debug(UserForm):
     top_n = None
 
     def user_input_int(self):
+        """
+        Проверка на наличие ошибок ввода пользователем
+        :return: int
+        """
         self.top_n = input("Введите количество вакансий вывода: ")
         if self.top_n.isalpha():
             raise ValueError("Количество не может быть строкой")
@@ -17,6 +21,10 @@ class HH_debug(UserForm):
         return int(self.top_n)
 
     def user_input_str(self):
+        """
+        Проверка на наличие ошибок ввода пользователем
+        :return: str
+        """
         self.search_query = input("Введите название интересующей вакансии: ")
         if self.search_query == "":
             raise ValueError("Запрос не может быть пустым")

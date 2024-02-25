@@ -19,6 +19,10 @@ class connect_HH(VacanciesAPI, Vacancies):
 
     @property
     def get_vacancies(self):
+        """
+        Метод чтения вакансий
+        :return: json
+        """
         date = requests.get(f"{self.url}/vacancies",
                             params={'text': self.name,
                                     'area': 113,
@@ -28,10 +32,13 @@ class connect_HH(VacanciesAPI, Vacancies):
         return date
 
     def get_json(self):
+        """
+        Метод записи вакансий в json-файл
+        """
         with open(FILE, "w", encoding="utf-8") as file:
             file.write(json.dumps(self.get_vacancies, indent=4, ensure_ascii=False))
 
 
-if __name__ == '__main__':
-    r = connect_HH("python", 100)
-    r.get_json()
+# if __name__ == '__main__':
+#     r = connect_HH("python", 100)
+#     r.get_json()

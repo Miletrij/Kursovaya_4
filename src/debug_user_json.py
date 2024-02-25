@@ -6,6 +6,10 @@ class DebugUserJson(UserForm):
     city = None
 
     def user_input_int(self):
+        """
+        Проверка на наличие ошибок ввода пользователем
+        :return: int
+        """
         self.payment = input("Введите минимальную зарплату цифрами: ")
         if self.payment.isalpha():
             raise ValueError("Неверно указана зарплата")
@@ -14,6 +18,10 @@ class DebugUserJson(UserForm):
         return int(self.payment)
 
     def user_input_str(self):
+        """
+        Проверка на наличие ошибок ввода пользователем
+        :return: str
+        """
         self.city = input("Введите интересующий Вас город: ").title()
         if self.city.isdigit():
             raise TypeError("Город не должен содержать числа")
